@@ -13,27 +13,26 @@
 # SPDX-License-Identifier: Apache-2.0
 
 file(GLOB_RECURSE VMDL_SRC . *.cpp)
-file(GLOB_RECURSE VMDL_INC . *.hpp)
 
 set(TARGET_NAME "vehicle-model")
 
 add_library(${TARGET_NAME} STATIC
     ${VMDL_SRC}
-    ${VMDL_INC}
+)
+
+add_dependencies(${TARGET_NAME}
+    vehicle-app-sdk
+    vehicle-model-generated-grpc
 )
 
 include_directories(
     ${CMAKE_BINARY_DIR}/gens
-    ${PROJECT_SOURCE_DIR}/sdk/include
+    ${PROJECT_SOURCE_DIR}/sdk/sdk/include
     .
     )
-
-add_dependencies(${TARGET_NAME} 
-    vehicle-app-sdk
-    vehicle-model-generated-grpc
-)
 
 target_link_libraries(${TARGET_NAME} 
     vehicle-app-sdk
     vehicle-model-generated-grpc
 )
+
