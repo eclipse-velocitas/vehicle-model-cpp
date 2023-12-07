@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Robert Bosch GmbH and Microsoft Corporation
+# Copyright (c) 2022-2023 Contributors to the Eclipse Foundation
 #
 # This program and the accompanying materials are made available under the
 # terms of the Apache License, Version 2.0 which is available at
@@ -37,12 +37,12 @@ foreach(FILE ${PROTO_FILES})
     set(OUTPUT_FILE_PATH_PB_SRC         "${_gRPC_PROTO_GENS_DIR}/${RELFIL_WE}.pb.cc")
     set(OUTPUT_FILE_PATH_PB_HDR         "${_gRPC_PROTO_GENS_DIR}/${RELFIL_WE}.pb.h")
     set(OUTPUT_FILE_PATH_GRPC_MOCK_HDR  "${_gRPC_PROTO_GENS_DIR}/${RELFIL_WE}_mock.grpc.pb.h" )
-    set(OUTPUT_FILES 
-        ${OUTPUT_FILE_PATH_GRPC_SRC} 
+    set(OUTPUT_FILES
+        ${OUTPUT_FILE_PATH_GRPC_SRC}
         ${OUTPUT_FILE_PATH_GRPC_HDR}
-        ${OUTPUT_FILE_PATH_PB_SRC} 
+        ${OUTPUT_FILE_PATH_PB_SRC}
         ${OUTPUT_FILE_PATH_PB_HDR}
-        ${OUTPUT_FILE_PATH_GRPC_MOCK_HDR} 
+        ${OUTPUT_FILE_PATH_GRPC_MOCK_HDR}
     )
 
     set(GENERATE_GRPC_SOURCES FALSE)
@@ -81,7 +81,7 @@ include_directories(${CMAKE_BINARY_DIR}/gens)
 
 set(TARGET_NAME "vehicle-model-generated-grpc")
 
-add_library(${TARGET_NAME} STATIC 
+add_library(${TARGET_NAME} STATIC
     ${PROTO_SRCS}
 )
 
